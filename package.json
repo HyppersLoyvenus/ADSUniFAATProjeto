@@ -1,13 +1,13 @@
 {
-  "name": "unifaat-devweb-base-project",
+  "name": "gerenciamento-escolar-backend",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node App/server.js",
+    "dev": "nodemon App/server.js"
   },
   "type": "module",
-  "author": "Luan Tavares",
+  "author": "Samsara: 3124596; 6324589; 6324304; 6324549",
   "license": "ISC",
   "description": "",
   "dependencies": {

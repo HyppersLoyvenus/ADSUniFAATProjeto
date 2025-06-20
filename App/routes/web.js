@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 
 import exampleModelApi from "./exampleApi.js";
-import ListPublicFilesController from '../app/Controllers/ListPublicFilesController.js';
+import ListPublicFilesController from "../Controllers/ListPublicFilesController.js";
 
 export default (function () {
 

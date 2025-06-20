@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import ListExampleController from '../app/Controllers/ModelExample/ListExampleController.js';
-import CreateExampleController from '../app/Controllers/ModelExample/CreateExampleController.js';
-import GetExampleController from '../app/Controllers/ModelExample/GetExampleController.js';
-import UpdateExampleController from '../app/Controllers/ModelExample/UpdateExampleController.js';
-import DeleteExampleController from '../app/Controllers/ModelExample/DeleteExampleController.js';
+import ListExampleController from '../Controllers/ModelExample/CreateExampleController.js';
+import CreateExampleController from '../Controllers/ModelExample/DeleteExampleController.js';
+import GetExampleController from '../Controllers/ModelExample/GetExampleController.js';
+import UpdateExampleController from '../Controllers/ModelExample/ListExampleController.js';
+import DeleteExampleController from '../Controllers/ModelExample/UpdateExampleController.js';
 
 export default (function () {
 

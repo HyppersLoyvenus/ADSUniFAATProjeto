@@ -1,8 +1,7 @@
-import db from "../../config/db.js";
+import db from "../config/db.js";
 
 export default (function () {
     const TABLE = "tabela_exemplo";
-
     const HTTP_STATUS = CONSTANTS.HTTP;
 
     return {

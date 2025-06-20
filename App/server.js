@@ -12,9 +12,8 @@ app.use("/", webRoutes);
 
 console.log(process.env.IS_CONTAINER);
 
-/** Escolher as portas baseado se foi inicializado com ou sem nginx */
+/* Escolher as portas baseado se foi inicializado com ou sem nginx */
 const webPort = process.env.PORT || 3000;
-
 const nodePort = process.env.NODE_PORT || webPort;
 
 app.listen(nodePort, () => {

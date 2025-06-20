@@ -4,7 +4,7 @@ services:
   node-web-container:
     build:
       context: .
-      dockerfile: docker/node22-web/Dockerfile.dev
+      dockerfile: Docker/node22-web/Dockerfile.dev
     env_file: .env
     volumes:
       - .:/app
@@ -24,11 +24,11 @@ services:
   nginx-container:
     build:
       context: .
-      dockerfile: docker/nginx/Dockerfile
+      dockerfile: Docker/nginx/Dockerfile
     ports:
       - "${PORT}:80"
     volumes:
-      - ./public:/var/www/public
+      - ./App/public:/var/www/public
     depends_on:
       - node-web-container
     networks:
@@ -46,14 +46,12 @@ services:
       - "6789:${POSTGRES_PORT}"
     volumes:
       - pgdata-volume:/var/lib/postgresql/data
-      - ./docker/postgres/init:/docker-entrypoint-initdb.d
+      - ./Docker/postgres/init:/docker-entrypoint-initdb.d
     networks:
       project-network:
         aliases:
           - ${POSTGRES_HOST}
 
-
-#OTHERS
 
 networks:
   project-network:
