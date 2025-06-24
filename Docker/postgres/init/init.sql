@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS responsavel(
     nome VARCHAR(255) NOT NULL,
     cpf CHAR(11) UNIQUE NOT NULL,
     telefone VARCHAR(20) NOT NULL,
-    email VARCHAR(254) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     endereco VARCHAR(500) NOT NULL,
     id_usuario INTEGER UNIQUE NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON DELETE CASCADE -- usuário deletado, o responsável também é
@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS professor (
     cpf CHAR(11) UNIQUE NOT NULL,
     area VARCHAR(100),
     telefone VARCHAR(20) NOT NULL,
-    email VARCHAR(254) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     data_contratacao DATE NOT NULL,
     id_usuario INTEGER UNIQUE NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuario(id) ON DELETE CASCADE -- usuário deletado, o professor também é

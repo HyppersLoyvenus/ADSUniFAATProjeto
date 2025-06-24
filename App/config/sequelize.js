@@ -1,18 +1,18 @@
 import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
 
-export default (function () {
+dotenv.config();
 
-    const env = process.env;
+const sequelize = new Sequelize(
+    process.env.POSTGRES_DB,
+    process.env.POSTGRES_USER,
+    process.env.POSTGRES_PASSWORD,
+    {
+        host: process.env.POSTGRES_HOST,
+        port: process.env.POSTGRES_PORT,
+        dialect: 'postgres',
+        logging: console.log, // tirar dps
+    }
+);
 
-    return new Sequelize(
-        env.POSTGRES_DB,
-        env.POSTGRES_USER,
-        env.POSTGRES_PASSWORD,
-        {
-            host: env.POSTGRES_HOST,
-            port: env.POSTGRES_PORT,
-            dialect: 'postgres'
-        }
-    );
-
-})();
+export default sequelize;

@@ -1,33 +1,66 @@
-import { Router } from 'express';
 import express from 'express';
-import path from 'path';
+import { Usuario, Professor, Aluno, Responsavel, Turma } from '../Models/index.js';
+import sequelize from '../config/sequelize.js';
+// importar controllers dps
+// import ProfessorController from '../controllers/ProfessorController.js';
 
-import exampleModelApi from "./exampleApi.js";
-import ListPublicFilesController from "../Controllers/ListPublicFilesController.js";
+const router = express.Router();
 
-export default (function () {
+router.post('/teste-criar-professor', async (req, res) => {
+    // Ex: { "email": "prof.novo@escola.com", "cpf": "55566677788", "nome": "Novo Prof" }
+    const { email, cpf, nome } = req.body;
 
-    const router = Router();
+    if (!email || !cpf || !nome) {
+        return res.status(400).json({ mensagem: 'Email, CPF e Nome são obrigatórios.' });
+    }
 
-    /** Usado para servir json */
-    router.use(express.json());
+    const t = await sequelize.transaction();
 
-    /** Servir o public estaticamente, tanto para arquivos como para os assets de frontend */
-    // NÃO SERÁ CHAMADO CASO TENHA A CAMADA DE NGINX COM ARQUIVOS ESTÁTICOS
-    router.use(express.static(path.join(CONSTANTS.DIR, 'public')));
+    try {
+        const novoUsuario = await Usuario.create({
+            email: email,
+            senha: 'senha_hash_padrao',
+            status: 'Ativo'
+        }, { transaction: t });
 
-    // Rota para listar arquivos na pasta 'public'
-    // NÃO SERÁ CHAMADO CASO TENHA A CAMADA DE NGINX COM ARQUIVOS ESTÁTICOS
-    router.get('/', ListPublicFilesController);
+        const novoProfessor = await Professor.create({
+            nome: nome,
+            cpf: cpf,
+            telefone: '00000000000',
+            email: email,
+            data_contratacao: new Date(),
+            id_usuario: novoUsuario.id
+        }, { transaction: t });
 
-    // example model routes
-    router.use('/', exampleModelApi);
+        await t.commit();
+        res.status(201).json({ usuario: novoUsuario, professor: novoProfessor });
 
-    /** Se nenhuma rota for encontrada, 404 neles! */
-    router.use((req, res) => {
-        res.status(CONSTANTS.HTTP.NOT_FOUND).json({ error: "Not found" });
-    });
+    } catch (error) {
+        await t.rollback();
+        console.error('Erro ao criar professor:', error);
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            return res.status(409).json({ mensagem: 'Email ou CPF já cadastrado.', detalhes: error.errors });
+        }
+        res.status(500).json({ mensagem: 'Erro interno ao criar professor', erro: error.message });
+    }
+});
 
-    return router;
+router.get('/aluno/:id', async (req, res) => {
+    try {
+        const aluno = await Aluno.findByPk(req.params.id, {
+            include: [
+                { model: Responsavel, as: 'responsavel' },
+                { model: Turma, as: 'turma' }
+            ]
+        });
 
-})();
+        if (!aluno) {
+            return res.status(404).json({ mensagem: 'Aluno não encontrado' });
+        }
+        res.status(200).json(aluno);
+    } catch (error) {
+        res.status(500).json({ mensagem: 'Erro ao buscar aluno', erro: error.message });
+    }
+});
+
+export default router;

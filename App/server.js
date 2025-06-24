@@ -1,21 +1,34 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import chalk from 'chalk';
-
-import "./bootstrap/app.js"
+import path from 'path';
+import { initializeDatabase } from "./bootstrap/app.js";
 import webRoutes from "./routes/web.js";
 
-/** Iniciar roteador */
-const app = express();
+async function startServer() {
+    await initializeDatabase();
 
-/** Inicializar rotas  */
-app.use("/", webRoutes);
+    const app = express();
+    
+    app.use(express.json());
 
-console.log(process.env.IS_CONTAINER);
+    const publicDir = path.join(process.cwd(), 'App', 'public');
+    app.use(express.static(publicDir));
+    
+    app.use('/', webRoutes);
 
-/* Escolher as portas baseado se foi inicializado com ou sem nginx */
-const webPort = process.env.PORT || 3000;
-const nodePort = process.env.NODE_PORT || webPort;
+    app.use((req, res, next) => {
+        res.status(404).json({ error: "Rota não encontrada" });
+    });
 
-app.listen(nodePort, () => {
-    console.log(chalk.green(`Servidor: http://localhost:${webPort}`));
-});
+    const webPort = process.env.PORT || 3000;
+    const nodePort = process.env.NODE_PORT || webPort;
+
+    app.listen(nodePort, () => {
+        console.log(chalk.green(`Servidor rodando em: http://localhost:${webPort}`));
+    });
+}
+
+startServer();
