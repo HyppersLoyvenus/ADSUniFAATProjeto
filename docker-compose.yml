@@ -1,5 +1,24 @@
 services:
 
+  #POSTGRES
+  postgres-container:
+    container_name: postgres-container
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "6789:${POSTGRES_PORT}"
+    volumes:
+      - pgdata-volume:/var/lib/postgresql/data
+      - ./Docker/postgres/init:/docker-entrypoint-initdb.d
+    networks:
+      project-network:
+        aliases:
+          - ${POSTGRES_HOST}
+
   #NODE
   node-web-container:
     container_name: node-web-container
@@ -35,26 +54,6 @@ services:
       - node-web-container
     networks:
       - project-network
-
-  #POSTGRES
-  postgres-container:
-    container_name: postgres-container
-    image: postgres:17
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - "6789:${POSTGRES_PORT}"
-    volumes:
-      - pgdata-volume:/var/lib/postgresql/data
-      - ./Docker/postgres/init:/docker-entrypoint-initdb.d
-    networks:
-      project-network:
-        aliases:
-          - ${POSTGRES_HOST}
-
 
 networks:
   project-network:
