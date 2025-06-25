@@ -1,5 +1,67 @@
 # Gerenciamento Escolar Infantil
 
+O sistema tem como objetivo principal automatizar e otimizar o controle de pagamentos, presenças e atividades dos alunos, substituindo o método manual atual baseado em cadernos.
+
+---
+
+## Instalação & Execução
+1. Clonar o repositório & acessa-lo:
+    
+    ```sh
+    git clone https://github.com/HyppersLoyvenus/ADSUniFaatProjeto.git
+    cd ADSUniFaatProjeto
+    ```
+
+2. Criar o arquivo `.env` na raiz do projeto copiando o .env.example:
+
+   ```ini
+   copy .env.example .env
+   ```
+
+3. Abrir o arquivo .env recém criado e preencher os campos abaixo:
+
+    ```sh
+    POSTGRES_USER=
+    POSTGRES_PASSWORD=
+    POSTGRES_DB=
+    ```
+
+4. Subir a aplicação com Docker Compose:
+
+   ```sh
+   docker-compose up --build -d
+   ```
+   > servidor estará disponível em: http://localhost:8080 \
+   > e as APIs via: http://localhost:8080/api
+
+## Estrutura do Projeto
+
+```
+C:.
+│   .dockerignore
+│   .env
+│   .env.example
+│   .gitignore
+│   docker-compose.yml
+│   LICENSE
+│   package-lock.json
+│   package.json
+│   README.md
+├───App
+│   │   server.js
+│   ├─── bootstrap/
+│   ├─── config/
+│   ├─── Controllers/
+│   ├─── Models/
+│   ├─── public/
+│   └─── routes/
+├───Docker
+│   ├───nginx/
+│   ├───node22-web/
+│   └───postgres/
+└───Docs
+        MER.png
+```
 ## Como contribuir com o projeto
 
 ### Fork do Repositório
