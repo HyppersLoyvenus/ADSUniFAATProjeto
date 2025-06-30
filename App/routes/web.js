@@ -2,12 +2,20 @@ import { Router } from 'express';
 import AlunoController from '../Controllers/AlunoController.js';
 import ResponsavelController from '../Controllers/ResponsavelController.js';
 import TurmaController from '../Controllers/TurmaController.js';
+import UsuarioController from '../Controllers/UsuarioController.js';
 
 const router = Router();
 
 router.get('/', (req, res) => {
     res.json({ status: 'API está no ar!' });
 });
+
+// ROTAS DE USUARIOS
+router.post('/usuarios', UsuarioController.create);
+router.get('/usuarios', UsuarioController.getAll);
+router.get('/usuarios/:id', UsuarioController.getById);
+router.put('/usuarios/:id', UsuarioController.update);
+router.delete('/usuarios/:id', UsuarioController.delete);
 
 // ROTAS DE ALUNOS
 router.post('/alunos', AlunoController.create);

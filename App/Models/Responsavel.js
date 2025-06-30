@@ -23,10 +23,7 @@ const Responsavel = sequelize.define("Responsavel", {
     email: {
         type: DataTypes.STRING(255),
         unique: true,
-        allowNull: false,
-        validate: {
-            isEmail: true
-        }
+        allowNull: false
     },
     endereco: {
         type: DataTypes.STRING(500),
