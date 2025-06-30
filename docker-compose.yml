@@ -14,6 +14,11 @@ services:
     volumes:
       - pgdata-volume:/var/lib/postgresql/data
       - ./Docker/postgres/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     networks:
       project-network:
         aliases:
@@ -38,7 +43,8 @@ services:
     networks:
       - project-network
     depends_on:
-      - postgres-container
+      postgres-container:
+        condition: service_healthy
 
   #NGINX
   nginx-container:
