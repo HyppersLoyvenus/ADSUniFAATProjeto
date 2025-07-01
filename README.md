@@ -2,9 +2,20 @@
 
 O sistema tem como objetivo principal automatizar e otimizar o controle de pagamentos, presenças e atividades dos alunos, substituindo o método manual atual baseado em cadernos.
 
----
+## Pré-Requisitos
+> Tecnologias necessárias para a execução base do projeto.
 
-## Instalação & Execução
+* Docker & Docker Compose (para subir a aplicação)
+* Insomnia (para vizualizar as APIs)
+
+## Sumário
+
+1. [Instalação & Execução](#instalacao-execucao)
+2. [Estrutura do Projeto](#estrutura-projeto)
+3. [Como Contribuir](#contribuir)
+
+
+## Instalação & Execução <a name="instalacao-execucao"></a>
 1. Clonar o repositório & acessa-lo:
     
     ```sh
@@ -31,38 +42,38 @@ O sistema tem como objetivo principal automatizar e otimizar o controle de pagam
    ```sh
    docker-compose up --build -d
    ```
-   > servidor estará disponível em: http://localhost:8080 \
-   > e as APIs via: http://localhost:8080/api
+   > Servidor estará disponível em: http://localhost:8080 \
+   > As APIs podem ser acessadas via: http://localhost:8080/api/<nome-da-rota> \
+   > - ou dando import do arquivo ```Insomnia_RotasAPI.yaml``` no seu Insomnia 
 
-## Estrutura do Projeto
+## Estrutura do Projeto <a name="estrutura-projeto"></a>
 
 ```
 C:.
-│   .dockerignore
-│   .env
 │   .env.example
-│   .gitignore
 │   docker-compose.yml
-│   LICENSE
+│   Insomnia_RotasAPI.yaml
 │   package-lock.json
 │   package.json
 │   README.md
 ├───App
-│   │   server.js
-│   ├─── bootstrap/
-│   ├─── config/
-│   ├─── Controllers/
-│   ├─── Models/
-│   ├─── public/
-│   └─── routes/
+│   ├───bootstrap
+│   ├───config
+│   ├───Controllers
+│   ├───Models
+│   ├───public
+│   └───routes
 ├───Docker
-│   ├───nginx/
-│   ├───node22-web/
-│   └───postgres/
+│   ├───nginx
+│   ├───node22-web
+│   └───postgres
+│       └───init.sql
 └───Docs
+        DER.jpg
         MER.png
 ```
-## Como contribuir com o projeto
+
+## Como contribuir com o projeto <a name="contribuir"></a>
 
 ### Fork do Repositório
 
