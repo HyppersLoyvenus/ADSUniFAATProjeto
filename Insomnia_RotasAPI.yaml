@@ -1,0 +1,940 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1749259968882
+  modified: 1749259968882
+  description: ""
+collection:
+  - name: Coleção API - Gerenciamento Escolar
+    meta:
+      id: fld_165e1e2dfd8349eb95986aad271baf14
+      created: 1751326030041
+      modified: 1751326070127
+      sortKey: -1751326030042
+      description: ""
+    children:
+      - name: Turmas
+        meta:
+          id: fld_ee621ee696974f58b721fada550ddb17
+          created: 1751324912123
+          modified: 1751326175524
+          sortKey: -1751326040253
+          description: ""
+        children:
+          - url: http://localhost:8080/api/turmas
+            name: Criar Turma
+            meta:
+              id: req_00a6395e747e4324903e7f396b0a3236
+              created: 1751323098567
+              modified: 1751401480225
+              isPrivate: false
+              description: ""
+              sortKey: -1751324932788
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"nome_turma": "Shibuya-Key",
+                	"ano_letivo": 2025,
+                	"capacidade": 31
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/turmas
+            name: Listar Turmas
+            meta:
+              id: req_f24d82737ff841c7972fe3dd25c9cce7
+              created: 1751323512145
+              modified: 1751326151877
+              isPrivate: false
+              description: ""
+              sortKey: -1751324932688
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/turmas/{% response 'body',
+              'req_00a6395e747e4324903e7f396b0a3236', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Atualizar Turma
+            meta:
+              id: req_aa8b86f09f884efa9b972e264dd67bf0
+              created: 1751325449660
+              modified: 1751401530956
+              isPrivate: false
+              description: ""
+              sortKey: -1751324932488
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"capacidade": 33
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/turmas/{% response 'body',
+              'req_00a6395e747e4324903e7f396b0a3236', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Deletar Turma
+            meta:
+              id: req_4dcc62cb4ffe4c19bec34b2036c0c419
+              created: 1751325451312
+              modified: 1751401543471
+              isPrivate: false
+              description: ""
+              sortKey: -1751324932388
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/turmas/{% response 'body',
+              'req_00a6395e747e4324903e7f396b0a3236', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Obter Turma por ID
+            meta:
+              id: req_d4b1a8d570bb48029769214e1ecc32ee
+              created: 1751325780396
+              modified: 1751401508272
+              isPrivate: false
+              description: ""
+              sortKey: -1751324932638
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Responsáveis
+        meta:
+          id: fld_2870738006ee42cca97c0fd9f2a650e7
+          created: 1751325264291
+          modified: 1751401718637
+          sortKey: -1751326040262.375
+          description: ""
+        children:
+          - url: http://localhost:8080/api/responsaveis
+            name: Criar Responsável
+            meta:
+              id: req_4dd3b80b48224f2d81b240b0ff0bd147
+              created: 1751324120745
+              modified: 1751327491431
+              isPrivate: false
+              description: ""
+              sortKey: -1751325275847
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"nome": "Yanase Jiro",
+                	"cpf": "11122233344",
+                	"telefone": "11912345678",
+                	"email": "yanasejiro2000@gmail.com",
+                	"endereco": "UMA Tour, 201",
+                	"id_usuario": 1
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/responsaveis
+            name: Listar Responsáveis
+            meta:
+              id: req_67687a4546d94390bf33d66a75f7dae4
+              created: 1751324836515
+              modified: 1751326595237
+              isPrivate: false
+              description: ""
+              sortKey: -1751325275747
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/responsaveis/{% response 'body',
+              'req_4dd3b80b48224f2d81b240b0ff0bd147', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Obter Responsável por ID
+            meta:
+              id: req_3e94d3bd77a84f8b9560b4986ca8649c
+              created: 1751326556265
+              modified: 1751401433989
+              isPrivate: false
+              description: ""
+              sortKey: -1751325275647
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/responsaveis/{% response 'body',
+              'req_4dd3b80b48224f2d81b240b0ff0bd147', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Atualizar Responsável
+            meta:
+              id: req_cdc03220338a469489feaaa1e85a81fe
+              created: 1751326625890
+              modified: 1751401441197
+              isPrivate: false
+              description: ""
+              sortKey: -1751325275547
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"endereco": "UMA Tour, 202"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/responsaveis/{% response 'body',
+              'req_4dd3b80b48224f2d81b240b0ff0bd147', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Deletar Responsável
+            meta:
+              id: req_4e322f0fd81b43f89769936d95e1822d
+              created: 1751326628453
+              modified: 1751401445083
+              isPrivate: false
+              description: ""
+              sortKey: -1751325275447
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Alunos
+        meta:
+          id: fld_18ce6b8dd69541099cc4f10efe8ed421
+          created: 1751325300013
+          modified: 1751401711358
+          sortKey: -1751326040259.25
+          description: ""
+        children:
+          - url: http://localhost:8080/api/alunos
+            name: Criar Aluno
+            meta:
+              id: req_4b5ec879977f488d9a2890aa5686fabd
+              created: 1751324887600
+              modified: 1751401609541
+              isPrivate: false
+              description: ""
+              sortKey: -1751325305996
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"nome": "Falco Man",
+                	"data_nascimento": "2008-12-28",
+                	"data_matricula": "2025-01-11",
+                	"status_matricula": "Ativo",
+                	"id_responsavel": 1,
+                	"id_turma": 1
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/alunos
+            name: Listar Alunos
+            meta:
+              id: req_f1f0f61ce5dd489290a04065cf401dd4
+              created: 1751324889501
+              modified: 1751326902579
+              isPrivate: false
+              description: ""
+              sortKey: -1751325305896
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/alunos/{% response 'body',
+              'req_4b5ec879977f488d9a2890aa5686fabd', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Obter Aluno por ID
+            meta:
+              id: req_90f318e6bf77411da275c80de4d169c7
+              created: 1751326906612
+              modified: 1751401631527
+              isPrivate: false
+              description: ""
+              sortKey: -1751325305796
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/alunos/{% response 'body',
+              'req_4b5ec879977f488d9a2890aa5686fabd', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Atualizar Aluno
+            meta:
+              id: req_28d034ab82f7445999b4985be0b072a1
+              created: 1751326922430
+              modified: 1751401653702
+              isPrivate: false
+              description: ""
+              sortKey: -1751325305696
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"data_matricula": "2025-02-11"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/alunos/{% response 'body',
+              'req_4b5ec879977f488d9a2890aa5686fabd', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Deletar Aluno
+            meta:
+              id: req_9066725c20c045deb0ff14c22c2cdc1b
+              created: 1751326940153
+              modified: 1751401660657
+              isPrivate: false
+              description: ""
+              sortKey: -1751325305596
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Usuários
+        meta:
+          id: fld_4dd952171cbd4235a625c7aa5e73d2a6
+          created: 1751325325907
+          modified: 1751402196995
+          sortKey: -1751326040303
+          description: ""
+        children:
+          - url: http://localhost:8080/api/usuarios
+            name: Criar Usuário
+            meta:
+              id: req_2aebab86c8b4459db38e5e6c7ccb3010
+              created: 1751324314660
+              modified: 1751401229993
+              isPrivate: false
+              description: ""
+              sortKey: -1751325360038
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                [
+                	{
+                		"email": "yanasejiro2000@gmail.com",
+                		"senha": "betcover",
+                		"status": "Ativo"
+                	},
+                	{
+                		"email": "shinjisato1900@gmail.com",
+                		"senha": "fishmans",
+                		"status": "Ativo"
+                	}
+                ]
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/usuarios
+            name: Listar Usuários
+            meta:
+              id: req_f6b79a54e01045ae8e00013fb8c8537b
+              created: 1751324792359
+              modified: 1751326294750
+              isPrivate: false
+              description: ""
+              sortKey: -1751325359938
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/usuarios/{% response 'body',
+              'req_2aebab86c8b4459db38e5e6c7ccb3010', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Obter Usuário por ID
+            meta:
+              id: req_906ccac52ac241adb4aed51692d07168
+              created: 1751326203936
+              modified: 1751400781957
+              isPrivate: false
+              description: ""
+              sortKey: -1751325359838
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/usuarios/{% response 'body',
+              'req_2aebab86c8b4459db38e5e6c7ccb3010', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Atualizar Usuário
+            meta:
+              id: req_3470d40492f9441faf763ff19aa81541
+              created: 1751326316681
+              modified: 1751400890284
+              isPrivate: false
+              description: ""
+              sortKey: -1751325359738
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"senha": "betcover!!"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/usuarios/{% response 'body',
+              'req_2aebab86c8b4459db38e5e6c7ccb3010', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Deletar Usuário
+            meta:
+              id: req_d4f57976274043499bf8e62d8f90abae
+              created: 1751326318742
+              modified: 1751400897050
+              isPrivate: false
+              description: ""
+              sortKey: -1751325359638
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.1.0
+            scripts:
+              preRequest: ""
+              afterResponse: ""
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+      - name: Professores
+        meta:
+          id: fld_f50eb59ff1e04d75bedc6ea9365f2ec0
+          created: 1751400930299
+          modified: 1751400940028
+          sortKey: -1751326040265.5
+          description: ""
+        children:
+          - url: http://localhost:8080/api/professores/{% response 'body',
+              'req_bd4d45b8404b4ca8bf488e0b5a6207fe', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Deletar Professor
+            meta:
+              id: req_54e475e8545b4f828ea809b797c5d189
+              created: 1751400942804
+              modified: 1751401401369
+              isPrivate: false
+              description: ""
+              sortKey: -1751400942804
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/professores/{% response 'body',
+              'req_bd4d45b8404b4ca8bf488e0b5a6207fe', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Atualizar Professor
+            meta:
+              id: req_bb939d2d76664a1cb093f0191b344243
+              created: 1751400945460
+              modified: 1751401381820
+              isPrivate: false
+              description: ""
+              sortKey: -1751400945460
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"area": "Biologia Marinha & Pesca"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/professores/{% response 'body',
+              'req_bd4d45b8404b4ca8bf488e0b5a6207fe', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Obter Professor por ID
+            meta:
+              id: req_441f8ac0bad748179a2dc7be2b46631a
+              created: 1751400947498
+              modified: 1751401341483
+              isPrivate: false
+              description: ""
+              sortKey: -1751400947498
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/professores
+            name: Listar Professores
+            meta:
+              id: req_ae473e391a4144d082fe47c98faaf6db
+              created: 1751400949981
+              modified: 1751401310935
+              isPrivate: false
+              description: ""
+              sortKey: -1751400949981
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/professores
+            name: Criar Professor
+            meta:
+              id: req_bd4d45b8404b4ca8bf488e0b5a6207fe
+              created: 1751400953322
+              modified: 1751401283934
+              isPrivate: false
+              description: ""
+              sortKey: -1751400953322
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"nome": "Shinji Sato",
+                	"cpf": "55566677788",
+                	"area": "Biologia Marinha",
+                	"telefone": "11987654321",
+                	"email": "shinjisato1900@gmail.com",
+                	"data_contratacao": "2020-09-11",
+                	"id_usuario": 2
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Pagamentos
+        meta:
+          id: fld_f80eb05a808a4860bc708a56d45aedf7
+          created: 1751401685854
+          modified: 1751401702491
+          sortKey: -1751326040228
+          description: ""
+        children:
+          - url: http://localhost:8080/api/pagamentos/{% response 'body',
+              'req_4271f293795948f6b38e9d448a5197d0', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Deletar Pagamento
+            meta:
+              id: req_bdea531a82854fe89e4365c8be876fef
+              created: 1751401727572
+              modified: 1751402161554
+              isPrivate: false
+              description: ""
+              sortKey: -1751401727572
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/pagamentos/{% response 'body',
+              'req_4271f293795948f6b38e9d448a5197d0', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Atualizar Pagamento
+            meta:
+              id: req_5c11e57d5d924ca0b16d83a91c90637e
+              created: 1751401730576
+              modified: 1751402158593
+              isPrivate: false
+              description: ""
+              sortKey: -1751401730576
+            method: PUT
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/pagamentos/{% response 'body',
+              'req_4271f293795948f6b38e9d448a5197d0', 'b64::JC5pZA==::46b',
+              'never', 60 %}
+            name: Obter Pagamento por ID
+            meta:
+              id: req_2e3aa0ba8354408b95314cc3666bdbff
+              created: 1751401732498
+              modified: 1751402154345
+              isPrivate: false
+              description: ""
+              sortKey: -1751401732498
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/pagamentos
+            name: Listar Pagamentos
+            meta:
+              id: req_13c531d2d0b74b3093c79609ca3bc2f3
+              created: 1751401734404
+              modified: 1751402138028
+              isPrivate: false
+              description: ""
+              sortKey: -1751401734404
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:8080/api/pagamentos
+            name: Criar Pagamento
+            meta:
+              id: req_4271f293795948f6b38e9d448a5197d0
+              created: 1751401736602
+              modified: 1751402128563
+              isPrivate: false
+              description: ""
+              sortKey: -1751401736602
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                  "valor": 359,
+                  "status": "Pago",
+                  "data_vencimento": "2025-07-01",
+                  "data_pagamento": "2025-06-27",
+                  "detalhes": "Mensalidade",
+                	"id_responsavel": 1
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.2.0
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1749259975159
+    modified: 1750535455635
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1749259975057
+    modified: 1750535455637
+    isPrivate: false
+  data:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibG9naW4iOiJVc2VyMiIsImVtYWlsIjoidXNlcjJAZXhhbXBsZS5jb20iLCJyb2xlIjoiUm9sZV9Qcm9mZXNzb3IiLCJpYXQiOjE3NTA1MzU0NTUsImV4cCI6MTc1MDUzNjA1NX0.tiCadJUrvcKyY75eO7ub1UN_m9KEWndYAnhlKfjH9x4
