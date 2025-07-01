@@ -2,6 +2,12 @@
 
 O sistema tem como objetivo principal automatizar e otimizar o controle de pagamentos, presenças e atividades dos alunos, substituindo o método manual atual baseado em cadernos.
 
+Membros:
+- Antuane Felipe - RA: 3124596
+- Gabrielle Palma - RA: 6324589
+- Karolina Mendes - RA: 6324304
+- Vitória Nascimento - RA: 6324549
+
 ## Pré-Requisitos
 > Tecnologias necessárias para a execução base do projeto.
 
@@ -43,7 +49,7 @@ O sistema tem como objetivo principal automatizar e otimizar o controle de pagam
    docker-compose up --build -d
    ```
    > Servidor estará disponível em: http://localhost:8080 \
-   > As APIs podem ser acessadas via: http://localhost:8080/api/<nome-da-rota> \
+   > As APIs podem ser acessadas via: http://localhost:8080/api/<nome-da-rota>
    > - ou dando import do arquivo ```Insomnia_RotasAPI.yaml``` no seu Insomnia 
 
 ## Estrutura do Projeto <a name="estrutura-projeto"></a>
